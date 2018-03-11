@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">Raspisnoy Poker</string>
+  <string name="main_connecting">Connecting to the server...</string>
+  <string name="main_connected">Connected</string>
+  <string name="main_cannot_connect">Cannot connect</string>
+  <string name="dashboard_welcome">Welcome</string>
+  <string name="dashboard_enterMessage">Enter Message</string>
+  <string name="dashboard_send">Send</string>
+</resources>
