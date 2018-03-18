@@ -1,0 +1,3 @@
+﻿.\migrate -a Poker.Server.Database.dll -c "Data Source=.\sqlexpress;Initial Catalog=Poker;Integrated Security=true;" -t migrate:up -db SqlServer2014
+
+.\migrate -a Poker.Server.Database.dll -c "Data Source=den1.mssql4.gear.host;Initial Catalog=RaspisnoyPoker;User id=raspisnoypoker;password=Dn92030-eax_" -t migrate:up -db SqlServer2014

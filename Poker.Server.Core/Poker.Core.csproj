@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2C62B983-DA6C-4E36-BA63-C86E607B30B0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Poker.Core</RootNamespace>
+    <AssemblyName>Poker.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=4.6.2.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.6.2\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper, Version=1.50.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.4\lib\net451\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstraction\IDependencyModule.cs" />
+    <Compile Include="ColumnOperations\OperationColumn.cs" />
+    <Compile Include="ColumnOperations\SaveColumn.cs" />
+    <Compile Include="ColumnOperations\SelectColumn.cs" />
+    <Compile Include="DAL\IDbConnectionFactory.cs" />
+    <Compile Include="DomainModel\ValueObject.cs" />
+    <Compile Include="Maps\ColumnType.cs" />
+    <Compile Include="Maps\TableMap.cs" />
+    <Compile Include="Primitives\Pagination\Pagination.cs" />
+    <Compile Include="Primitives\Pagination\SortDirection.cs" />
+    <Compile Include="Primitives\Pagination\Sorting.cs" />
+    <Compile Include="Primitives\Pagination\SortItem.cs" />
+    <Compile Include="Services\IUserService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlBuilders\DeleteSqlBuilder.cs" />
+    <Compile Include="SqlBuilders\Infrastructure\Filter.cs" />
+    <Compile Include="SqlBuilders\Infrastructure\MssqlSqlDialect.cs" />
+    <Compile Include="SqlBuilders\Infrastructure\SqlDialect.cs" />
+    <Compile Include="SqlBuilders\Infrastructure\SqlOperationVisitor.cs" />
+    <Compile Include="SqlBuilders\SaveSqlBuilder.cs" />
+    <Compile Include="SqlBuilders\SelectSqlBuilder.cs" />
+    <Compile Include="SqlBuilders\SqlBuilder.cs" />
+    <Compile Include="SqlBuilders\UpdateSqlBuilder.cs" />
+    <Compile Include="SqlOperations\BinaryOperation.cs" />
+    <Compile Include="SqlOperations\Binary\AndOperation.cs" />
+    <Compile Include="SqlOperations\Binary\EqualsOperation.cs" />
+    <Compile Include="SqlOperations\Binary\InOperation.cs" />
+    <Compile Include="SqlOperations\Binary\OrOperation.cs" />
+    <Compile Include="SqlOperations\Constants\ArrayOperation.cs" />
+    <Compile Include="SqlOperations\Constants\ConstantOperation.cs" />
+    <Compile Include="SqlOperations\Constants\PropertyOperation.cs" />
+    <Compile Include="SqlOperations\Constants\ValueOperation.cs" />
+    <Compile Include="SqlOperations\CustomOperation.cs" />
+    <Compile Include="SqlOperations\IOperationVisitor.cs" />
+    <Compile Include="SqlOperations\Operation.cs" />
+    <Compile Include="SqlOperations\UnaryOperation.cs" />
+    <Compile Include="SqlOperations\Unary\NotOperation.cs" />
+    <Compile Include="SqlOperations\Unary\NullOperation.cs" />
+    <Compile Include="SqlOperations\Unary\TrueOperation.cs" />
+    <Compile Include="Validation\Contract.cs" />
+    <Compile Include="Validation\ExceptionResolver.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Poker.Viewmodels\Poker.ViewModels.csproj">
+      <Project>{4f2a6fee-f914-45b8-96a1-466449da1c1c}</Project>
+      <Name>Poker.ViewModels</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

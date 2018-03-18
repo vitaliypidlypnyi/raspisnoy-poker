@@ -1,4 +1,4 @@
-﻿namespace Poker.CardManager.Enums
+﻿namespace Poker.ViewModels.Enums
 {
     public enum Suit
     {

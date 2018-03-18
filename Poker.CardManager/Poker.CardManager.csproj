@@ -8,4 +8,8 @@
     <PackageReference Include="VG.XFShapeView.NetCore" Version="1.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Poker.Viewmodels\Poker.ViewModels.csproj" />
+  </ItemGroup>
+
 </Project>

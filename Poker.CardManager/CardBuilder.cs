@@ -5,7 +5,7 @@ namespace Poker.CardManager
 {
     public class CardBuilder
     {
-        static void BuildCard(Card card)
+        static void BuildCard(CardViewModel card)
         {
             var box = new ShapeView
             {
